@@ -1,24 +1,34 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import Counter from './Counter.js';
 
 function App() {
+
+  const [counter, setCounter] = useState(0);
+
+  const incrementValue = () => {
+    // setCounter(counter+1);
+
+    //simple way 
+    // let counterValue = counter + 1;
+    // console.log(counterValue);
+
+    setCounter((counter) => counter + 1);
+    // setCounter((counter) => counter + 1); //this will make value increment by 2 because 2 it setCounter 2 times
+
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <h1>Studywithme React pt.6</h1>
+
+      <div>
+        {/* {counter}
+        <button onClick={incrementValue}>+</button> */}
+
+        <Counter counter={counter} incrementValue={incrementValue}/>
+      </div>
+    </>
   );
 }
 
